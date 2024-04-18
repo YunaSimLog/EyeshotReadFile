@@ -67,12 +67,15 @@ namespace ReadFileSample
             devDept.Eyeshot.Control.NavigationSettings navigationSettings1 = new devDept.Eyeshot.Control.NavigationSettings(devDept.Eyeshot.Camera.navigationType.Examine, new devDept.Eyeshot.Control.MouseButton(devDept.Eyeshot.Control.mouseButtonsZPR.Left, devDept.Eyeshot.Control.modifierKeys.None), new devDept.Geometry.Point3D(-1000D, -1000D, -1000D), new devDept.Geometry.Point3D(1000D, 1000D, 1000D), 8D, 50D, 50D);
             devDept.Eyeshot.Control.CoordinateSystemIcon coordinateSystemIcon1 = new devDept.Eyeshot.Control.CoordinateSystemIcon(new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129))), System.Drawing.Color.Black, System.Drawing.Color.Black, System.Drawing.Color.Black, System.Drawing.Color.Black, System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.OrangeRed, "Origin", "X", "Y", "Z", true, devDept.Eyeshot.Control.coordinateSystemPositionType.BottomLeft, 37, null, false);
             devDept.Eyeshot.Control.ViewCubeIcon viewCubeIcon1 = new devDept.Eyeshot.Control.ViewCubeIcon(devDept.Eyeshot.Control.coordinateSystemPositionType.TopRight, true, System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(20)))), ((int)(((byte)(60))))), true, "FRONT", "BACK", "LEFT", "RIGHT", "TOP", "BOTTOM", System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), 'S', 'N', 'W', 'E', true, null, System.Drawing.Color.White, System.Drawing.Color.Black, 120, true, true, null, null, null, null, null, null, false, new devDept.Geometry.Quaternion(0D, 0D, 0D, 1D), true);
-            devDept.Eyeshot.Control.Viewport viewport1 = new devDept.Eyeshot.Control.Viewport(new System.Drawing.Point(0, 0), new System.Drawing.Size(499, 426), backgroundSettings1, camera1, new devDept.Eyeshot.Control.ToolBar[] {
+            devDept.Eyeshot.Control.Viewport viewport1 = new devDept.Eyeshot.Control.Viewport(new System.Drawing.Point(0, 0), new System.Drawing.Size(530, 426), backgroundSettings1, camera1, new devDept.Eyeshot.Control.ToolBar[] {
             toolBar1}, new devDept.Eyeshot.Control.Legend[] {
             legend1}, histogram1, devDept.Eyeshot.displayType.Rendered, true, false, false, new devDept.Eyeshot.Control.Grid[] {
             grid1}, new devDept.Eyeshot.Control.OriginSymbol[] {
             originSymbol1}, false, rotateSettings1, zoomSettings1, panSettings1, navigationSettings1, coordinateSystemIcon1, viewCubeIcon1, devDept.Eyeshot.viewType.Trimetric);
             this.design1 = new devDept.Eyeshot.Control.Design();
+            this.btnLoadSTL = new System.Windows.Forms.Button();
+            this.btnLoadStep = new System.Windows.Forms.Button();
+            this.btnShowAxes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.design1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,16 +88,52 @@ namespace ReadFileSample
             this.design1.Location = new System.Drawing.Point(12, 12);
             this.design1.Name = "design1";
             this.design1.ProgressBar = progressBar1;
-            this.design1.Size = new System.Drawing.Size(499, 426);
+            this.design1.Size = new System.Drawing.Size(530, 426);
             this.design1.TabIndex = 0;
             this.design1.Text = "design1";
             this.design1.Viewports.Add(viewport1);
+            // 
+            // btnLoadSTL
+            // 
+            this.btnLoadSTL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadSTL.Location = new System.Drawing.Point(548, 12);
+            this.btnLoadSTL.Name = "btnLoadSTL";
+            this.btnLoadSTL.Size = new System.Drawing.Size(119, 36);
+            this.btnLoadSTL.TabIndex = 1;
+            this.btnLoadSTL.Text = "STL 불러오기";
+            this.btnLoadSTL.UseVisualStyleBackColor = true;
+            this.btnLoadSTL.Click += new System.EventHandler(this.btnLoadData_Click);
+            // 
+            // btnLoadStep
+            // 
+            this.btnLoadStep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadStep.Location = new System.Drawing.Point(548, 54);
+            this.btnLoadStep.Name = "btnLoadStep";
+            this.btnLoadStep.Size = new System.Drawing.Size(119, 36);
+            this.btnLoadStep.TabIndex = 2;
+            this.btnLoadStep.Text = "STEP 불러오기";
+            this.btnLoadStep.UseVisualStyleBackColor = true;
+            this.btnLoadStep.Click += new System.EventHandler(this.btnLoadData_Click);
+            // 
+            // btnShowAxes
+            // 
+            this.btnShowAxes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowAxes.Location = new System.Drawing.Point(548, 96);
+            this.btnShowAxes.Name = "btnShowAxes";
+            this.btnShowAxes.Size = new System.Drawing.Size(119, 36);
+            this.btnShowAxes.TabIndex = 3;
+            this.btnShowAxes.Text = "축 보이기";
+            this.btnShowAxes.UseVisualStyleBackColor = true;
+            this.btnShowAxes.Click += new System.EventHandler(this.btnShowAxes_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(679, 450);
+            this.Controls.Add(this.btnShowAxes);
+            this.Controls.Add(this.btnLoadStep);
+            this.Controls.Add(this.btnLoadSTL);
             this.Controls.Add(this.design1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -106,6 +145,9 @@ namespace ReadFileSample
         #endregion
 
         private devDept.Eyeshot.Control.Design design1;
+        private System.Windows.Forms.Button btnLoadSTL;
+        private System.Windows.Forms.Button btnLoadStep;
+        private System.Windows.Forms.Button btnShowAxes;
     }
 }
 
