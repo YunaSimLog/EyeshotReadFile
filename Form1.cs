@@ -102,14 +102,9 @@ namespace ReadFileSample
                 if (cylindricalSurf == null)
                     continue;
 
-                //Surface surface = face.Parametric[0];
-                //Point3D boxMin, boxMax;
-                //surface.ControlBoundingBox(out boxMin, out boxMax);
-                //Size3D boxSize = new Size3D(boxMin, boxMax);
-
                 Point3D boxMin, boxMax;
-                boxMin = face.Tessellation.BoxMin;
                 boxMax= face.Tessellation.BoxMax;
+                boxMin = face.Tessellation.BoxMin;
                 Size3D boxSize = face.Tessellation.BoxSize;
 
                 Segment3D segment = new Segment3D(cylindricalSurf.Plane.Origin, cylindricalSurf.Plane.Origin + cylindricalSurf.Plane.AxisZ);
